@@ -182,10 +182,11 @@
                         @if (Auth::user()->user_type == "retailer")
                         <li class="">
                             <a href="/soldeout"> <i class="fa fa-home" aria-hidden="true"></i>
-                                <span data-localize="sidebar.nav.DASHBOARD">Sell ciment</span></a>
+                                <span data-localize="sidebar.nav.DASHBOARD">Remove ciment</span>
+                            </a>
 
                         <ul class="sidebar-nav sidebar-subnav collapse">
-                            <li class="sidebar-subnav-header">Sell Ciment</li>
+                            <li class="sidebar-subnav-header">Remove Ciment</li>
                         </ul>
                         </li>
                         <li class=" ">
@@ -197,7 +198,7 @@
                         <li class=" ">
                             <a href="/Cimententsold"> <i class="fa fa-users" aria-hidden="true"></i><span data-localize="sidebar.nav.DASHBOARD">Ciment Sold</span></a>
                             <ul class="sidebar-nav sidebar-subnav collapse">
-                                <li class="sidebar-subnav-header">Ciment sold </li>
+                                <li class="sidebar-subnav-header">Ciment Remove </li>
                             </ul>
                         </li>
                         @endif
