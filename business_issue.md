@@ -1,0 +1,12 @@
+== Business requirement & Pain point 
+- AR Consult Engineering
+
+MD - SITE - STORE - PM MANAGER - FORE MAN(SITE ENGINEER) - STORE MANAGER
+
+R10
+R17
+D14
+C90
+
+
+REQUESTING INVENTORY, TOPPING UP
