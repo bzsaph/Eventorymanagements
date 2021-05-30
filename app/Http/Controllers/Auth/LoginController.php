@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -28,24 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    // protected $redirectTo = RouteServiceProvider::HOME;
-    protected function redirectTo(){
-
-        $user=Auth::user()->user_type;
-        if ( $user=='customer') {
-            Session::flash('message', "Welcome to the system ");
-                return '/';
-
-        }elseif ($user=='Superadmin'||'admin'||'retailer') {
-          return 'dashboard';
-        }else{
-            Session::flash('message', "You need previllage to access the system");
-          return '/';
-        }
-
-
-      }
-
+    protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
