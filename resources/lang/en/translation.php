@@ -3,8 +3,10 @@
 return [
     "Menu" => "Menu",
     "Dashboards" => "Dashboards",
-    // "Default" => "Statisticts",
-    "Default" => "Statisticts",
+    "CRM" => "CRM",
+    "Issues"=>"Complaine",
+    "ReplayIssues"=>"Reply compaine",
+    "Default" => "All user",
     "SITE"=>"SITE",
     "EDITSITE"=>"EDITSITE",
     "STOCKER"=>"STOCKER",

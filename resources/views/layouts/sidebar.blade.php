@@ -9,26 +9,40 @@
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li class="menu-title" key="t-menu">@lang('translation.Menu')</li>
 
+                   {{-- crm --}}
+                <li>
+                    <a href="javascript: void(0);" class="waves-effect">
+                        <i class="bx bx-badge-check"></i>
+                        <span key="t-dashboards">@lang('translation.CRM')</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="newsite" key="t-User">  <i class="bx bxs-bell"></i>@lang('translation.Issues')</a></li>
+                        <li><a href="Editsite" key="t-User"> <i class="bx bxs-bell-minus"></i>@lang('translation.ReplayIssues')</a></li>
+                    </ul>
+                </li>
+                  {{-- User --}}
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
                         <i class="bx bx-user-pin"></i>
 
-                        <span key="t-dashboards">@lang('translation.Dashboards')</span>
+                        <span key="t-dashboards">@lang('translation.User')</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="index" key="t-default">@lang('translation.Default')</a></li>
-                        <li><a href="dashboard-User" key="t-User">@lang('translation.User')</a></li>
+                        <li><a href="index" key="t-default"><i class="bx bx-user-plus"></i> @lang('translation.Default')</a></li>
+                        <li><a href="dashboard-User" key="t-User"><i class="bx bxs-user"></i>@lang('translation.User')</a></li>
                      </ul>
                 </li>
-        {{-- site creation and Edit --}}
+                {{-- site creation and Edit --}}
+
+                 {{-- Stocker --}}
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
                         <i class="bx bx-home-circle"></i>
                         <span key="t-dashboards">@lang('translation.STOCKER')</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="newstocker" key="t-User">@lang('translation.SITE')</a></li>
-                        <li><a href="Editstocker" key="t-User">@lang('translation.EDITSITE')</a></li>
+                        <li><a href="newstocker" key="t-User"><i class="bx bx-briefcase-alt-2"></i>@lang('translation.SITE')</a></li>
+                        <li><a href="Editstocker" key="t-User"><i class="bx bx-archive-in"></i>@lang('translation.EDITSITE')</a></li>
 
                     </ul>
                 </li>
@@ -41,9 +55,10 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="newsite" key="t-User">@lang('translation.SITE')</a></li>
                         <li><a href="Editsite" key="t-User">@lang('translation.EDITSITE')</a></li>
-
                     </ul>
                 </li>
+
+
 
                 {{-- <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -120,7 +135,7 @@
                     </a>
                 </li> --}}
 
-                <li>
+                {{-- <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-store"></i>
                         <span key="t-ecommerce">@lang('translation.Ecommerce')</span>
@@ -153,7 +168,7 @@
                         <li><a href="crypto-kyc-application" key="t-kyc">@lang('translation.KYC_Application')</a></li>
                         <li><a href="crypto-ico-landing" key="t-ico">@lang('translation.ICO_Landing')</a></li>
                     </ul>
-                </li>
+                </li> --}}
 {{--
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
