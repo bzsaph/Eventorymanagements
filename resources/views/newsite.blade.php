@@ -34,6 +34,9 @@
                             <div class="col-lg-10">
                                 <select name="Assignedto" id="" class="form-control" required>
                                     <option value="" selected disabled>choose Name</option>
+                                    @foreach ($alluser as $user )
+                                        <option value="{!! $user->id !!}">{!! $user->name !!}</option>
+                                    @endforeach
                                 </select>
 
                             </div>

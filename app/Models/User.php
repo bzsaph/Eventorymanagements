@@ -20,7 +20,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'dob', 
+        'dob',
         'avatar',
     ];
 
@@ -42,4 +42,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function privilages(){
+        return $this->hasMany(Privilage::class,'user_id');
+    }
 }

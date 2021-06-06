@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
@@ -171,5 +172,11 @@ class HomeController extends Controller
         //     'dob' => date('Y-m-d', strtotime($request['dob'])),
         //     'avatar' => "/images/" . $avatarName,
         // ]);
+    }
+
+    public function newsite()
+    {
+        $alluser =DB::table('users')->where([['status',"1"]])->select('name','id','User_type')->get();
+       return view("newsite",compact('alluser'));
     }
 }

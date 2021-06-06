@@ -18,6 +18,7 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'root'])->name('root');
 Route::get('/dashboard-alluser', [App\Http\Controllers\HomeController::class, 'dashboardalluser'])->name('dashboardalluser');
+Route::get('/newsite', [App\Http\Controllers\HomeController::class, 'newsite'])->name('newsite');
 
 //Update User Details
 Route::post('/update-profile/{id}', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfile');
