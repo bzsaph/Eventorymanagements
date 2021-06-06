@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -30,7 +31,7 @@ class HomeController extends Controller
     {
         if (view()->exists($request->path())) {
 
-          
+
             return view($request->path());
         }
         return abort(404);
@@ -108,7 +109,7 @@ class HomeController extends Controller
             return response()->json([
                 'isSuccess' => false,
                 'Message' => "Your Current password does not matches with the password you provided. Please try again."
-            ], 200); // Status code 
+            ], 200); // Status code
         } else {
             $user = User::find($id);
             $user->password = Hash::make($request->get('password'));
@@ -129,5 +130,41 @@ class HomeController extends Controller
                 ], 200); // Status code here
             }
         }
+    }
+    public function registernewuser(Request $request)
+    {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'dob' => ['required', 'date', 'before:today'],
+
+        ]);
+
+        // if (request()->has('avatar')) {
+        //     $avatar = request()->file('avatar');
+        //     $avatarName = time() . '.' . $avatar->getClientOriginalExtension();
+        //     $avatarPath = public_path('/images/');
+        //     $avatar->move($avatarPath, $avatarName);
+        // }
+        $user = new User();
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->password=Hash::make($request['password']);
+        $user->dob= date('Y-m-d', strtotime($request['dob']));
+        $user->avatar= 'null';
+        $user->save();
+        return redirect()->back();
+
+
+
+
+        // return User::create([
+        //     'name' => $request['name'],
+        //     'email' => $request['email'],
+        //     'password' => Hash::make($request['password']),
+        //     'dob' => date('Y-m-d', strtotime($request['dob'])),
+        //     'avatar' => "/images/" . $avatarName,
+        // ]);
     }
 }

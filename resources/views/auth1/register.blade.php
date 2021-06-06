@@ -166,7 +166,7 @@
                                 <p>© <script>
                                         document.write(new Date().getFullYear())
 
-                                    </script> Arconsult . Crafted with <i class="mdi mdi-heart text-danger"></i> by Arconsult 
+                                    </script> Arconsult . Crafted with <i class="mdi mdi-heart text-danger"></i> by Arconsult
                                 </p>
                             </div>
                         </div>
