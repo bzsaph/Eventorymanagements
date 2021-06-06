@@ -28,7 +28,7 @@
                         <span key="t-dashboards">@lang('translation.User')</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="index" key="t-default"><i class="bx bx-user-plus"></i> @lang('translation.Default')</a></li>
+                        <li><a href="/dashboard-alluser" key="t-default"><i class="bx bx-user-plus"></i> @lang('translation.Default')</a></li>
                         <li><a href="dashboard-User" key="t-User"><i class="bx bxs-user"></i>@lang('translation.User')</a></li>
                      </ul>
                 </li>

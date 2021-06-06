@@ -41,6 +41,11 @@ class HomeController extends Controller
     {
         return view('index');
     }
+    public function dashboardalluser()
+    {
+        $alluser =User::all();
+       return view('admin.dashboardalluser',compact('alluser'));
+    }
 
     /*Language Translation*/
     public function lang($locale)
