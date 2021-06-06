@@ -8,7 +8,10 @@
 
     <!-- dropzone css -->
     <link href="{{ URL::asset('/assets/libs/dropzone/dropzone.min.css') }}" rel="stylesheet" type="text/css" />
-@endsection
+    {{-- data table --}}
+    <link href="{{ URL::asset('/assets/libs/datatables/datatables.min.css') }}" rel="stylesheet" type="text/css" />
+
+    @endsection
 
 @section('content')
 
@@ -20,35 +23,120 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-4">Create New Site</h4>
-                    <form>
-                        <div class="row mb-4">
-                            <label for="projectname" class="col-form-label col-lg-2">Site Name</label>
-                            <div class="col-lg-10">
-                                <input id="projectname" name="projectname" type="text" class="form-control"
-                                    placeholder="Enter Site Name...">
-                            </div>
-                        </div>
-                        <div class="row mb-4">
-                            <label for="projectname" class="col-form-label col-lg-2">Site Manager</label>
-                            <div class="col-lg-10">
-                                <select name="Assignedto" id="" class="form-control" required>
-                                    <option value="" selected disabled>choose Name</option>
-                                    @foreach ($alluser as $user )
-                                        <option value="{!! $user->id !!}">{!! $user->name !!}</option>
+                    <a href="" class="btn btn-primary waves-effect waves-light btn-sm card-title mb-4" data-bs-toggle="modal"
+                             data-bs-target=".update-profile">Create New SIte</a>
+
+                     <!--  Update Profile example -->
+                            <div class="modal fade update-profile" tabindex="-1" role="dialog"
+                            aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="myLargeModalLabel">Crate New Site</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form class="form-horizontal" method="POST" action="/dasboard-newsite"  enctype="multipart/form-data" id="update-profile">
+                                            @csrf
+                                            <div class="row mb-4">
+                                                <label for="projectname" class="col-form-label col-lg-4">Site Name</label>
+                                                <div class="col-lg-8">
+                                                    <input id="projectname" name="sitename" type="text" class="form-control"
+                                                        placeholder="Enter Site Name...">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-4">
+                                                <label for="sitemanager" class="col-form-label col-lg-4">Site Manager</label>
+                                                <div class="col-lg-8">
+                                                    <select name="Assignedto" id="" class="form-control" required>
+                                                        <option value="" selected disabled>choose Name</option>
+                                                        @foreach ($alluserselect as $user )
+                                                            <option value="{!! $user->id !!}">{!! $user->name !!}</option>
+                                                        @endforeach
+                                                    </select>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="mt-3 d-grid">
+                                                <button class="btn btn-primary waves-effect waves-light UpdateProfile" data-id="{{ Auth::user()->id }}"
+                                                    type="submit">Update</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div><!-- /.modal-content -->
+                            </div><!-- /.modal-dialog -->
+                        </div><!-- /.modal -->
+                        <div class="card-body">
+                            <h4 class="card-title">All users In the system wil there previllages</h4>
+                            <table id="datatable-buttons" class="table table-bordered dt-responsive nowrap w-100">
+                                <thead>
+                                    <tr>
+                                        <th>Site Name</th>
+                                        <th>Site Manager</th>
+                                        <th>Site Created By</th>
+                                        <th>Tool</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($alluser as $user)
+                                    <tr>
+                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>{{ $user->dob }}</td>
+                                        <td ><span class="badge bg-primary rounded-pill ms-2">{{ $user->User_type }}</span>
+                                            @foreach ($user->privilages as $privilage)
+                                                @if ($privilage->Delete =="1")
+                                                <p class="badge bg-success  ms-2"> Delete</p>
+                                                @endif
+                                                @if ($privilage->Create =="1")
+                                                <p class="badge bg-success  ms-2"> Create </p>
+                                                @endif
+                                                @if ($privilage->Update =="1")
+                                                <p class="badge bg-success  ms-2"> Update </p>
+                                                @endif
+                                                @if ($privilage->View =="1")
+                                                <p class="badge bg-success  ms-2">  View </p>
+                                                @endif
+                                                @if ($privilage->Full =="1")
+                                                <p class="badge bg-success  ms-2"> Full privilage </p>
+                                                @endif
+
+                                            @endforeach
+                                        </td>
+                                        <td>
+                                            @foreach (Auth::user()->privilages as $privilage)
+                                            @if ($privilage->Full =="1")
+                                            <a href="dashboard-adituser/{{  $user->id  }}"><i class="bx bx-edit-alt" style="font-size: 40px !important ;color:rgba(29, 61, 165, 0.842) !important"></i> </a>
+                                            <a href="dashboard-viewuser/{{  $user->id  }}"><i class="bx bx-happy-heart-eyes" style="font-size: 40px !important;color:rgba(75, 245, 75, 0.568) !important"></i></a>
+                                            <a href="dashboard-deleteuser/{{  $user->id  }}"><i class="bx bx-x-circle" style="font-size: 40px !important;color:rgb(226, 43, 43) !important"></i></a>
+                                        @elseif(count(Auth::user()->privilages) ==null){
+
+                                            @else
+
+                                            @if ($privilage->Update =="1")
+                                            <a href="dashboard-adituser/{{  $user->id  }}"><i class="bx bx-edit-alt" style="font-size: 40px !important ;color:rgba(29, 61, 165, 0.842) !important"></i> </a>
+                                            @endif
+                                            @if ($privilage->View =="1")
+                                            <a href="dashboard-viewuser/{{  $user->id  }}"><i class="bx bx-happy-heart-eyes" style="font-size: 40px !important;color:rgba(75, 245, 75, 0.568) !important"></i></a>
+                                            @endif
+                                            @if ($privilage->Delete =="1")
+                                            <a href="dashboard-deleteuser/{{  $user->id  }}"><i class="bx bx-x-circle" style="font-size: 40px !important;color:rgb(226, 43, 43) !important"></i></a>
+                                            @endif
+                                            @endif
+
+
+                                            @endforeach
+
+
+
+                                        </td>
+
                                     @endforeach
-                                </select>
-
-                            </div>
+                                </tbody>
+                            </table>
                         </div>
-
-                    </form>
-
-                    <div class="row justify-content-end">
-                        <div class="col-lg-10">
-                            <button type="submit" class="btn btn-primary">Create Project</button>
-                        </div>
-                    </div>
 
                 </div>
             </div>
@@ -62,4 +150,10 @@
     {{-- <script src="{{ URL::asset('/assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script> --}}
     <!-- dropzone plugin -->
     <script src="{{ URL::asset('/assets/libs/dropzone/dropzone.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/libs/datatables/datatables.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/libs/jszip/jszip.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/libs/pdfmake/pdfmake.min.js') }}"></script>
+    <!-- Datatable init js -->
+    <script src="{{ URL::asset('/assets/js/pages/datatables.init.js') }}"></script>
 @endsection
+

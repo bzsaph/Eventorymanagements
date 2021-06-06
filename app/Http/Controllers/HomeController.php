@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Site;
 use App\Models\User;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Auth;
@@ -176,7 +177,18 @@ class HomeController extends Controller
 
     public function newsite()
     {
-        $alluser =DB::table('users')->where([['status',"1"]])->select('name','id','User_type')->get();
-       return view("newsite",compact('alluser'));
+        $alluser =Site::all();
+        $alluserselect =DB::table('users')->where([['status',"1"]])->select('name','id','User_type')->get();
+       return view("newsite",compact('alluser','alluserselect'));
+    }
+    public function dasboardnewsite(Request $request)
+    {
+       $sitenew= new Site();
+       $sitenew->sitename=$request->sitename;
+       $sitenew->Created_by=Auth::user()->id;
+       $sitenew->user_id=$request->Assignedto;
+       $sitenew->status=1;
+       $sitenew->save();
+       return redirect()->route('newsite');
     }
 }

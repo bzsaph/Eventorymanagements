@@ -2,13 +2,11 @@
 <div class="vertical-menu">
 
     <div data-simplebar class="h-100">
-
         <!--- Sidemenu -->
         <div id="sidebar-menu">
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li class="menu-title" key="t-menu">@lang('translation.Menu')</li>
-
                    {{-- crm --}}
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
@@ -24,7 +22,6 @@
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
                         <i class="bx bx-user-pin"></i>
-
                         <span key="t-dashboards">@lang('translation.User')</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -33,7 +30,6 @@
                      </ul>
                 </li>
                 {{-- site creation and Edit --}}
-
                  {{-- Stocker --}}
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">

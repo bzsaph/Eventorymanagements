@@ -29,3 +29,6 @@ Route::post('/registernewuser', [App\Http\Controllers\HomeController::class, 're
 
 //Language Translation
 Route::get('index/{locale}', [App\Http\Controllers\HomeController::class, 'lang']);
+//Language Translation
+Route::post('dasboard-newsite', [App\Http\Controllers\HomeController::class, 'dasboardnewsite']);
+
