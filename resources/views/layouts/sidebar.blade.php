@@ -53,8 +53,8 @@
                         <span key="t-dashboards">@lang('translation.SITE')</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="newsite" key="t-User">@lang('translation.SITE')</a></li>
-                        <li><a href="Editsite" key="t-User">@lang('translation.EDITSITE')</a></li>
+                        <li><a href="newsite" key="t-User"><i class="bx bx-briefcase-alt-2"></i>@lang('translation.SITE')</a></li>
+                        <li><a href="Editsite" key="t-User"><i class="bx bx-been-here"></i>@lang('translation.EDITSITE')</a></li>
                     </ul>
                 </li>
 
