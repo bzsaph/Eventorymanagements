@@ -1,1 +1,0 @@
-$("input[id^=digit]").on("keyup",(function(i){var t=$(this).attr("id").replace("digit","");t++,$("#digit"+t).focus()}));
