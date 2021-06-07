@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Site;
-use App\Models\User;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -11,6 +9,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use App\Models\User;
+use App\Models\Site;
+use App\Models\StockItem;
 
 class HomeController extends Controller
 {
@@ -196,4 +197,20 @@ class HomeController extends Controller
        $sitenew->save();
        return redirect()->route('newsite');
     }
+
+    public function stock_items()
+    {
+        $stock_items = StockItem::all();
+       return view("stock_items", compact('stock_items',));
+    }
+    public function add_stock_items(Request $request)
+    {
+       $stockItem= new StockItem();
+       $stockItem->name = $request->name;
+       $stockItem->measurement_unit = $request->unit;
+       $stockItem->created_by = Auth::user()->id;
+       $stockItem->save();
+       return redirect()->route('list_stock_items');
+    }
+    
 }

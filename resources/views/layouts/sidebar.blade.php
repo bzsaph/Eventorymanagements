@@ -41,9 +41,8 @@
                         <span key="t-dashboards">@lang('translation.STOCKER')</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="newstocker" key="t-User"><i class="bx bx-briefcase-alt-2"></i>@lang('translation.SITE')</a></li>
-                        <li><a href="Editstocker" key="t-User"><i class="bx bx-archive-in"></i>@lang('translation.EDITSITE')</a></li>
-
+                        <li><a href="newstocker" key="t-User"><i class="bx bx-briefcase-alt-2"></i>All Stock</a></li>
+                        <li><a href="stock_items" key="t-User"><i class="bx bx-archive-in"></i>Items</a></li>
                     </ul>
                 </li>
                 {{-- Stocker --}}
@@ -108,9 +107,11 @@
                     </ul>
                 </li> --}}
 
-                <li class="menu-title" key="t-apps">@lang('translation.Apps')</li>
+                
 
-                {{-- <li>
+                {{-- 
+                <li class="menu-title" key="t-apps">@lang('translation.Apps')</li>
+                <li>
                     <a href="calendar" class="waves-effect">
                         <i class="bx bx-calendar"></i>
                         <span key="t-calendar">@lang('translation.Calendar')</span>

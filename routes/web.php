@@ -20,6 +20,10 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'root'])->name('roo
 Route::get('/dashboard-alluser', [App\Http\Controllers\HomeController::class, 'dashboardalluser'])->name('dashboardalluser');
 Route::get('/newsite', [App\Http\Controllers\HomeController::class, 'newsite'])->name('newsite');
 
+// Stock
+Route::get('/stock_items', [App\Http\Controllers\HomeController::class, 'stock_items'])->name('list_stock_items');
+Route::post('/stock_items/new', [App\Http\Controllers\HomeController::class, 'add_stock_items'])->name('add_stock_item');
+
 //Update User Details
 Route::post('/update-profile/{id}', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfile');
 Route::post('/update-password/{id}', [App\Http\Controllers\HomeController::class, 'updatePassword'])->name('updatePassword');
