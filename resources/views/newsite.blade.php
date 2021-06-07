@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title') @lang('translation.Create_New') @endsection
+@section('title') Sites @endsection
 
 @section('css')
     <!-- bootstrap datepicker -->
@@ -69,68 +69,26 @@
                             </div><!-- /.modal-dialog -->
                         </div><!-- /.modal -->
                         <div class="card-body">
-                            <h4 class="card-title">All users In the system wil there previllages</h4>
+                            <h4 class="card-title">All sites</h4>
                             <table id="datatable-buttons" class="table table-bordered dt-responsive nowrap w-100">
                                 <thead>
                                     <tr>
                                         <th>Site Name</th>
                                         <th>Site Manager</th>
-                                        <th>Site Created By</th>
+                                        <th>Site Created Date</th>
                                         <th>Tool</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($alluser as $user)
                                     <tr>
-                                        <td>{{ $user->name }}</td>
-                                        <td>{{ $user->email }}</td>
-                                        <td>{{ $user->dob }}</td>
-                                        <td ><span class="badge bg-primary rounded-pill ms-2">{{ $user->User_type }}</span>
-                                            @foreach ($user->privilages as $privilage)
-                                                @if ($privilage->Delete =="1")
-                                                <p class="badge bg-success  ms-2"> Delete</p>
-                                                @endif
-                                                @if ($privilage->Create =="1")
-                                                <p class="badge bg-success  ms-2"> Create </p>
-                                                @endif
-                                                @if ($privilage->Update =="1")
-                                                <p class="badge bg-success  ms-2"> Update </p>
-                                                @endif
-                                                @if ($privilage->View =="1")
-                                                <p class="badge bg-success  ms-2">  View </p>
-                                                @endif
-                                                @if ($privilage->Full =="1")
-                                                <p class="badge bg-success  ms-2"> Full privilage </p>
-                                                @endif
-
-                                            @endforeach
+                                        <td>{{ $user->sitename }}</td>
+                                        <td>{{ $user->managerName }}</td>
+                                        <td>{{ $user->created_at }}</td>
+                                        <td >
+                                            <span class="badge bg-primary rounded-pill ms-2">{{ $user->User_type }}</span>
                                         </td>
                                         <td>
-                                            @foreach (Auth::user()->privilages as $privilage)
-                                            @if ($privilage->Full =="1")
-                                            <a href="dashboard-adituser/{{  $user->id  }}"><i class="bx bx-edit-alt" style="font-size: 40px !important ;color:rgba(29, 61, 165, 0.842) !important"></i> </a>
-                                            <a href="dashboard-viewuser/{{  $user->id  }}"><i class="bx bx-happy-heart-eyes" style="font-size: 40px !important;color:rgba(75, 245, 75, 0.568) !important"></i></a>
-                                            <a href="dashboard-deleteuser/{{  $user->id  }}"><i class="bx bx-x-circle" style="font-size: 40px !important;color:rgb(226, 43, 43) !important"></i></a>
-                                        @elseif(count(Auth::user()->privilages) ==null){
-
-                                            @else
-
-                                            @if ($privilage->Update =="1")
-                                            <a href="dashboard-adituser/{{  $user->id  }}"><i class="bx bx-edit-alt" style="font-size: 40px !important ;color:rgba(29, 61, 165, 0.842) !important"></i> </a>
-                                            @endif
-                                            @if ($privilage->View =="1")
-                                            <a href="dashboard-viewuser/{{  $user->id  }}"><i class="bx bx-happy-heart-eyes" style="font-size: 40px !important;color:rgba(75, 245, 75, 0.568) !important"></i></a>
-                                            @endif
-                                            @if ($privilage->Delete =="1")
-                                            <a href="dashboard-deleteuser/{{  $user->id  }}"><i class="bx bx-x-circle" style="font-size: 40px !important;color:rgb(226, 43, 43) !important"></i></a>
-                                            @endif
-                                            @endif
-
-
-                                            @endforeach
-
-
-
                                         </td>
 
                                     @endforeach

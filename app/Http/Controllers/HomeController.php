@@ -178,6 +178,10 @@ class HomeController extends Controller
     public function newsite()
     {
         $alluser = Site::all();
+        foreach($alluser as $key=>$user){
+            $alluser[$key]->privilages = [];
+            $alluser[$key]->managerName = User::find($user->id)->name??"-";
+        }
         $alluserselect = DB::table('users')->where([['status',"1"]])->select('name','id','User_type')->get();
        return view("newsite", compact('alluser','alluserselect'));
     }
