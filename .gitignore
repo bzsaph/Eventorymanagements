@@ -5,6 +5,7 @@
 /public/assets/js
 /public/assets/libs
 /public/assets/fonts
+/public/assets/images
 /public/images
 /storage/*.key
 /vendor
