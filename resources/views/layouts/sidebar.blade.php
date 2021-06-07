@@ -14,8 +14,12 @@
                         <span key="t-dashboards">@lang('translation.CRM')</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="newsite" key="t-User">  <i class="bx bxs-bell"></i>@lang('translation.Issues')</a></li>
-                        <li><a href="Editsite" key="t-User"> <i class="bx bxs-bell-minus"></i>@lang('translation.ReplayIssues')</a></li>
+                        <li>
+                            <a href="newsite" key="t-User">  <i class="bx bxs-bell"></i>@lang('translation.Issues')</a>
+                        </li>
+                        <li>
+                            <a href="Editsite" key="t-User"> <i class="bx bxs-bell-minus"></i>@lang('translation.ReplayIssues')</a>
+                        </li>
                     </ul>
                 </li>
                   {{-- User --}}
