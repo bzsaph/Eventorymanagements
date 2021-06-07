@@ -45,4 +45,9 @@ class User extends Authenticatable
     public function privilages(){
         return $this->hasMany(Privilage::class,'user_id');
     }
+    // public function Sitecreatedbya(){
+    //     return $this->hasMany(User::class,'users_id','id');
+    // }
+
 }
+

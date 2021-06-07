@@ -189,11 +189,15 @@ class HomeController extends Controller
 
     public function dasboardnewsite(Request $request)
     {
+        $request->validate([
+            'sitename' => ['required', 'string', 'max:255','unique:sites'],
+            'user_id' => ['required',   'unique:sites'],
+        ]);
        $sitenew= new Site();
-       $sitenew->sitename = $request->sitename;
-       $sitenew->Created_by = Auth::user()->id;
-       $sitenew->user_id = $request->Assignedto;
-       $sitenew->status = 1;
+       $sitenew->sitename=$request->sitename;
+       $sitenew->Created_by=Auth::user()->id;
+       $sitenew->user_id=$request->user_id;
+       $sitenew->status=1;
        $sitenew->save();
        return redirect()->route('newsite');
     }
