@@ -14,9 +14,11 @@
 
 .auth-logo{
     .auth-logo-dark{
+        margin: 0 auto;
         display: $display-block;
     }
     .auth-logo-light{
+        margin: 0 auto;
         display: $display-none;
     }
 }

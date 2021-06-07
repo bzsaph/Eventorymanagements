@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title') @lang('translation.Form_Elements') @endsection
+@section('title') Create a user @endsection
 
 @section('content')
 

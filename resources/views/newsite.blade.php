@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title') @lang('translation.Create_New') @endsection
+@section('title') Sites @endsection
 
 @section('css')
     <!-- bootstrap datepicker -->
@@ -79,7 +79,7 @@
                             </div><!-- /.modal-dialog -->
                         </div><!-- /.modal -->
                         <div class="card-body">
-                            <h4 class="card-title">All users In the system wil there previllages</h4>
+                            <h4 class="card-title">All sites</h4>
                             <table id="datatable-buttons" class="table table-bordered dt-responsive nowrap w-100">
                                 <thead>
                                     <tr>
