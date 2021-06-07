@@ -177,17 +177,18 @@ class HomeController extends Controller
 
     public function newsite()
     {
-        $alluser =Site::all();
-        $alluserselect =DB::table('users')->where([['status',"1"]])->select('name','id','User_type')->get();
-       return view("newsite",compact('alluser','alluserselect'));
+        $alluser = Site::all();
+        $alluserselect = DB::table('users')->where([['status',"1"]])->select('name','id','User_type')->get();
+       return view("newsite", compact('alluser','alluserselect'));
     }
+
     public function dasboardnewsite(Request $request)
     {
        $sitenew= new Site();
-       $sitenew->sitename=$request->sitename;
-       $sitenew->Created_by=Auth::user()->id;
-       $sitenew->user_id=$request->Assignedto;
-       $sitenew->status=1;
+       $sitenew->sitename = $request->sitename;
+       $sitenew->Created_by = Auth::user()->id;
+       $sitenew->user_id = $request->Assignedto;
+       $sitenew->status = 1;
        $sitenew->save();
        return redirect()->route('newsite');
     }

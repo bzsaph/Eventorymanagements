@@ -8,7 +8,7 @@
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li class="menu-title" key="t-menu">@lang('translation.Menu')</li>
                    {{-- crm --}}
-                <li>
+                {{-- <li>
                     <a href="javascript: void(0);" class="waves-effect">
                         <i class="bx bx-badge-check"></i>
                         <span key="t-dashboards">@lang('translation.CRM')</span>
@@ -21,16 +21,16 @@
                             <a href="Editsite" key="t-User"> <i class="bx bxs-bell-minus"></i>@lang('translation.ReplayIssues')</a>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
                   {{-- User --}}
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
                         <i class="bx bx-user-pin"></i>
-                        <span key="t-dashboards">@lang('translation.User')</span>
+                        <span key="t-dashboards">Users</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="/dashboard-alluser" key="t-default"><i class="bx bx-user-plus"></i> @lang('translation.Default')</a></li>
-                        <li><a href="dashboard-User" key="t-User"><i class="bx bxs-user"></i>@lang('translation.User')</a></li>
+                        <li><a href="dashboard-User" key="t-User"><i class="bx bx-user-plus"></i>Create new</a></li>
+                        <li><a href="/dashboard-alluser" key="t-default"><i class="bx bxs-user"></i> All users</a></li>
                      </ul>
                 </li>
                 {{-- site creation and Edit --}}
@@ -50,7 +50,7 @@
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
                         <i class="bx bx-building-house"></i>
-                        <span key="t-dashboards">@lang('translation.SITE')</span>
+                        <span key="t-dashboards">Sites</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="newsite" key="t-User"><i class="bx bx-briefcase-alt-2"></i>@lang('translation.SITE')</a></li>
