@@ -98,11 +98,6 @@
                                                      {{ $privilage->name }}
                                                     @endforeach
                                                 </td>
-
-                                                {{-- @foreach ($user->sitesmanager as $privilage)
-
-                                                @endforeach --}}
-
                                             <td>
                                                 @foreach (Auth::user()->privilages as $privilage)
                                                 @if ($privilage->Full =="1")
@@ -123,17 +118,10 @@
                                                 <a href="dashboard-deleteuser/{{  $user->id  }}"><i class="bx bx-x-circle" style="font-size: 40px !important;color:rgb(226, 43, 43) !important"></i></a>
                                                 @endif
                                                 @endif
-
-
                                                 @endforeach
-
-
-
                                             </td>
                                         {{-- </td> --}}
                                          @endforeach
-
-
                                     </tr>
                                 </tbody>
                             </table>
